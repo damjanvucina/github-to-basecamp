@@ -1,0 +1,47 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package tutorial;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "GithubEndpoint.Protobuf";
+// [END csharp_declaration]
+
+// [START messages]
+message GithubFile {
+
+  message MessageData {
+	string type = 1;
+  }
+  
+  message CommitData{
+	string sha = 1;
+  }
+
+  message FileData {
+    string sha = 1;
+	string filename = 2;
+    string status = 3;
+    string rawUrl = 4;
+  }
+   
+  message StatsData {
+	int32 total = 1;
+	int32 additions = 2;
+	int32 deletions = 3;
+  }
+
+  repeated MessageData message = 1;
+  repeated CommitData commit = 2;
+  repeated FileData file = 3;
+  repeated StatsData stats = 4;
+}
+// [END messages]

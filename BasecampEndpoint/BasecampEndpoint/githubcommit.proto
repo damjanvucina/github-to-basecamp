@@ -1,0 +1,51 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package tutorial;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "BasecampEndpoint.Protobuf";
+// [END csharp_declaration]
+
+// [START messages]
+message GithubCommit {
+
+  message MessageData {
+	string type = 1;
+  }
+
+  message AuthorData {
+    string name = 1;
+	string email = 2;
+    string avatarUrl = 3;
+    string htmlUrl = 4;
+  }
+  
+  message CommitData {
+	string sha = 1;
+	string date = 2;
+	string message = 3;
+	string htmlUrl = 4;
+	int32 commentCount = 5;
+  }
+ 
+  message TotalStatsData {
+	int32 total = 1;
+	int32 additions = 2;
+	int32 deletions = 3;
+  }
+
+  repeated MessageData message = 1;
+  repeated AuthorData author = 2;
+  repeated CommitData commit = 3;
+  repeated TotalStatsData totalStats = 4;
+}
+// [END messages]

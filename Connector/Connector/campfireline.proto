@@ -1,0 +1,36 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package tutorial;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "Connector.Protobuf";
+// [END csharp_declaration]
+
+// [START messages]
+message CampfireLine {
+
+  message MessageData {
+	string type = 1;
+  }
+  
+  message LineData {
+	string commitSha = 1;
+	string campfireLineId = 2;
+	string campfireId = 3;
+	string projectId = 4;
+  }
+ 
+
+  repeated MessageData message = 1;
+  repeated LineData data = 2;
+}
+// [END messages]
